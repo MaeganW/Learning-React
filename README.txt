@@ -53,8 +53,9 @@ once components are created, they must be used to generate HTML and show it on t
 They are more capable than function-based components.
 
 Must have a defined render() method
+Classes also need a contstructor() method
 
-If class extends another class, must call super to use the code from the parent method
+super(): If class extends another class, must call super() method to use the code from the parent method
 
 EXAMPLE: (note: the 'component' piece is really React.Component - the version below is ES6 syntax)
 
@@ -66,6 +67,7 @@ class SearchBar extends Component {
         super(props);
         
         this.state = {term: ''};
+        //doesn't have to be called 'term'
     }
     
     render() {
@@ -79,6 +81,49 @@ class SearchBar extends Component {
     }
 }
 
+    
+---- STATE ----
+
+"It is a plain js obj that is used to record and react to user events."
+
+"Each class-based component that is defined has its own state object.  Whenever a component's state is changed, the component immediately re-renders - and also forces all of its children to re-render as well."
+
+"Functional components DO NOT HAVE STATE."
+
+Only inside the constructor() can you use
+    -> this.state = {term: ''};
+
+Everywhere else, you have to use
+    -> this.setState({term: somethingHere})
+    
+Can say {this.state.term} to reference it. But not to change it.
+
+"When we want to update our component in some fashion, be thinking state."
+
+---- STATE: CONTROLLED FORM ELEMENT ----
+
+AKA Controlled Field Element
+
+"An element whose value is set by the state rather than the other way around."
+
+Input shouldn't tell state to change in this case. State should tell input to change.
+
+To do this you add
+    -> value={this.state.term}
+    ...to the input element
+    ...now its value changes only when the state changes
+    
+When user changes input
+    -> onChange={event => this.setState({ term: event.target.value })}
+    ...runs and changes the state
+    ...this causes the input to update because the value of the input equals the state now (as seen above)
+    
+---- DOWNWARDS DATA FLOW ----
+
+Only the most parent component should be responsible for fetching data.
+
+In this case, index.js's App component.
+
 ---- YOUTUBE API ----
 
 get key for api
@@ -86,7 +131,23 @@ declare 'API_KEY' variable for easy use
 
 npm install --save youtube-api-search
     -> this will access the api search functionality
-    
-    
-    
+
+DONT FORGET TO...
+import YTSearch from 'youtube-api-search';
+    -> can call it what you want
+
+---- ADDING CSS CLASSES IN JSX ----
+
+instead of class="" use...
+    -> className=""
+
+---- PROPS ----
+
+great lecture - better to watch again than summarize
+
+
+
+
+
+
     
