@@ -92,6 +92,8 @@ class SearchBar extends Component {
 
 "Functional components DO NOT HAVE STATE."
 
+"In React, state is very compenent-level based, while in Redux, it is more application-based."
+
 Only inside the constructor() can you use
     -> this.state = {term: ''};
 
@@ -183,6 +185,18 @@ const imageUrl = video.snippet.thumbnails.default.url;
 
 ...this variable was created in the same component in video_list_item.js
 
+
+---- THROTTLING ----
+
+Intentionally slow the app down.  In this case, have the videos update with every typed character is a little unsettingling, so we want to do it every few seconds instead of instantly.
+
+Use Lodash library
+
+npm install --save lodash
+
+import _ from 'lodash';
+
+const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
 
 
