@@ -52,6 +52,8 @@ once components are created, they must be used to generate HTML and show it on t
 
 They are more capable than function-based components.
 
+Use class-based when you need a component that handles state.  Else use function-based.
+
 Must have a defined render() method
 Classes also need a contstructor() method
 
@@ -169,7 +171,7 @@ const VideoList = props => {
 
 ---- JAVASCRIPT VARIABLES INSIDE JSX ----
 
-!!they must be reference by a pair of {}
+!!they must be referenced by a pair of {}
 
 EXAMPLE:
 
