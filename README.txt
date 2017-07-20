@@ -145,6 +145,48 @@ instead of class="" use...
 
 great lecture - better to watch again than summarize
 
+---- REACT AND ARRAYS ----
+
+React knows how to handle arrays.  If you nest an array inside a ul, it knows to create li tags for each one.
+
+However, you need to assign each item in the array a "key" property with a unique id (else every time there is an update, the ENTIRE array will have to re-render).  Like so...
+
+
+const VideoList = props => {
+    const videoItems = props.videos.map((video) => {
+        return <VideoListItem key={video.etag} video={video} />
+        //see the above key property
+    });
+    
+    return (
+        <ul className="col-md-4 list-group">
+            {videoItems}
+            //this is the array we created above with map
+        </ul>
+    );
+};
+
+
+---- JAVASCRIPT VARIABLES INSIDE JSX ----
+
+!!they must be reference by a pair of {}
+
+EXAMPLE:
+
+<img className="media-object" src={imageUrl} />
+
+//The src={imageUrl} is referencing...
+
+const imageUrl = video.snippet.thumbnails.default.url;
+
+...this variable was created in the same component in video_list_item.js
+
+
+
+
+
+
+
 
 
 
