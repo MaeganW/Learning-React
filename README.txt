@@ -1,6 +1,6 @@
 **** MY NOTES ****
 
-*Base Proj Cloned From: ReduxSimpleStarter by Stephen Grider
+*Base boilerplate cloned from ReduxSimpleStarter by Stephen Grider
 
 ---- MOST BASIC STARTUP FROM BASE PROJ ----
 
