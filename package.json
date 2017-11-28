@@ -4,6 +4,7 @@
   "description": "A simple youtube search engine built with react.",
   "main": "index.js",
   "repository": "https://github.com/MaeganW/YouTube_React_App.git",
+  "homepage": "https://maeganw.github.io/YouTube_React_App/",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
