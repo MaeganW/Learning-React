@@ -15,15 +15,15 @@ import necessary files to index.js
     -> e.g.
     import React from 'react';
     import ReactDOM from 'react-dom';
-    
+
     import SearchBar from './components/search_bar';
-    
+
     //SearchBar is a random file with code for a  search bar
 
 !!DONT FORGET TO EXPORT!!
     -> In search_bar.js add
     export default SearchBar;
-    
+
     //this is the name of the component in search_bar.js
 
 create components in index.js
@@ -34,20 +34,20 @@ components - js functions or alternatively classes (ES6) that produce HTML
     const App = () => {
     return (
             <div>
-                Search here: 
+                Search here:
                 <SearchBar />
             </div>
             );
         }
 
 once components are created, they must be used to generate HTML and show it on the DOM
-    -> e.g.   
+    -> e.g.
     ReactDOM.render(<App />, document.querySelector('.container'));
-    
+
     -> need <App /> to use it - to create a component instance - can also be <App></App>
-    
+
     -> root node:  document.querySelector('.container') is the location the component is rendered to
-    
+
 ---- CLASS-BASED COMPONENT ----
 
 They are more capable than function-based components.
@@ -67,11 +67,11 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {term: ''};
         //doesn't have to be called 'term'
     }
-    
+
     render() {
         return (
             <div>
@@ -83,7 +83,7 @@ class SearchBar extends Component {
     }
 }
 
-    
+
 ---- STATE ----
 
 "It is a plain js obj that is used to record and react to user events."
@@ -99,7 +99,7 @@ Only inside the constructor() can you use
 
 Everywhere else, you have to use
     -> this.setState({term: somethingHere})
-    
+
 Can say {this.state.term} to reference it. But not to change it.
 
 "When we want to update our component in some fashion, be thinking state."
@@ -116,12 +116,12 @@ To do this you add
     -> value={this.state.term}
     ...to the input element
     ...now its value changes only when the state changes
-    
+
 When user changes input
     -> onChange={event => this.setState({ term: event.target.value })}
     ...runs and changes the state
     ...this causes the input to update because the value of the input equals the state now (as seen above)
-    
+
 ---- DOWNWARDS DATA FLOW ----
 
 Only the most parent component should be responsible for fetching data.
@@ -161,7 +161,7 @@ const VideoList = props => {
         return <VideoListItem key={video.etag} video={video} />
         //see the above key property
     });
-    
+
     return (
         <ul className="col-md-4 list-group">
             {videoItems}
@@ -208,4 +208,3 @@ const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 
 
 
-    
